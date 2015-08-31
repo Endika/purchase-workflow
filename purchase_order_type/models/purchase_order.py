@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (c) 2010-2013 Elico Corp. All Rights Reserved.
-#    Author: Yannick Gouin <yannick.gouin@elico-corp.com>
+#
+#    Authors: Guewen Baconnier
+#    Copyright 2015 Camptocamp SA
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,7 +17,17 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
-from . import product
+#
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+from openerp import models, fields
+from openerp.addons.purchase.purchase import purchase_order
+
+
+class PurchaseOrder(models.Model):
+    _inherit = 'purchase.order'
+
+    order_type = fields.Many2one(comodel_name='purchase.order.type',
+                                 readonly=False,
+                                 states=purchase_order.READONLY_STATES,
+                                 string='Type',
+                                 ondelete='restrict')

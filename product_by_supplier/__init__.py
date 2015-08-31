@@ -1,9 +1,9 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
-#    Copyright (c) 2014-2015 Serv. Tecnol. Avanzados - Pedro M. Baeza
+#    Copyright (c) 2010-2013 Elico Corp.
+#    Author: Yannick Gouin <yannick.gouin@elico-corp.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,25 +19,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    "name": "Purchase order lines with discounts",
-    "author": "Tiny, "
-              "Acysos S.L., "
-              "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
-              "Odoo Community Association (OCA)",
-    "version": "8.0.1.1",
-    "contributors": [
-        'Pedro M. Baeza',
-    ],
-    "category": "Purchase Management",
-    "depends": [
-        "stock",
-        "purchase",
-    ],
-    "data": [
-        "views/purchase_discount_view.xml",
-        "views/report_purchaseorder.xml",
-    ],
-    "license": 'AGPL-3',
-    "installable": True
-}
+from . import models
